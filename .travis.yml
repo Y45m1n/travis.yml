@@ -1,0 +1,20 @@
+language: java #Especifica que o projeto é em Java
+jdk: #define a versçai do JDK a ser usada. Neste caso, estamos usando o OpenJDK 11.
+- openjdk8
+#instala as dependencias do projeto
+install: true #Comando para instalar dependências. Neste caso, 'true' indica que estamos usando os comandos padrão do Maven
+#executa os testes do projeto
+script: #Comando para construir o projeto e executar os testes. 'mvn clean install' limpa o diretório de build, compila o código e executa os testes.
+
+- mvn clean install
+#configure o cache para evitar o dowload de dependencias repetidas
+cache: #Direcione o Travis CI para armenizar em cache o diretorio local do MAVEN para acelerar builds subsrquentes
+directories:
+- $HOME/.m2
+
+notifications:
+email:
+recipients:
+- yasmindeoliveira286@gmail.com
+on_sucess: change
+on_failure: always
